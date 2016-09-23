@@ -1,0 +1,9 @@
+2016-09-23 22:46:59 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE T_USER ( [*]"; expected "identifier"; SQL statement:
+CREATE TABLE t_user ( [42001-192]
+2016-09-23 22:48:06 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE T_USER ( ID VARCHAR(64) PRIMARY KEY COMMENT[*] 'ID', USERNAME VARCHAR(128) NOT NULL COMMENT '用户名', PASSWORD VARCHAR(256) NOT NULL COMMENT '密码' ) "; expected "HASH, AUTO_INCREMENT, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE t_user ( id VARCHAR(64) PRIMARY KEY COMMENT 'ID', username VARCHAR(128) NOT NULL COMMENT '用户名', password VARCHAR(256) NOT NULL COMMENT '密码' ) [42001-192]
+2016-09-23 22:49:52 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Table "T_USER" already exists; SQL statement:
+CREATE TABLE t_user ( id VARCHAR(64) PRIMARY KEY, username VARCHAR(128) NOT NULL, password VARCHAR(256) NOT NULL ) [42101-192]

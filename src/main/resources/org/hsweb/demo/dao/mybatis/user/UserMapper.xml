@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.hsweb.demo.dao.UserDao">
+    <resultMap id="UserResultMap" type="org.hsweb.demo.po.User">
+        <id property="id" column="u_id" javaType="string" jdbcType="VARCHAR"/>
+        <result property="username" column="username" javaType="String" jdbcType="VARCHAR"/>
+        <result property="password" column="password" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="org.hsweb.demo.po.User">
+        insert into t_user (u_id,username,password) values(#{u_id},#{username},#{password})
+    </insert>
+
+    <delete id="deleteById" parameterType="org.hsweb.demo.po.User">
+        delete from t_user where id=#{id}
+    </delete>
+
+    <update id="update" parameterType="org.hsweb.demo.po.User">
+        update t_user set password = #{password} where id=#{id}
+    </update>
+
+    <select id="selectById" parameterType="string" resultMap="UserResultMap">
+        select * from t_user where id=#{id}
+    </select>
+
+    <select id="selectByUserName" parameterType="string" resultMap="UserResultMap">
+        select * from t_user where username=#{username}
+    </select>
+
+    <select id="selectAll" resultMap="UserResultMap">
+        select * from t_user
+    </select>
+
+</mapper>

@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS t_user;
+CREATE TABLE t_user (
+  id       VARCHAR(64) PRIMARY KEY,
+  username VARCHAR(128) NOT NULL,
+  password VARCHAR(256) NOT NULL
+);

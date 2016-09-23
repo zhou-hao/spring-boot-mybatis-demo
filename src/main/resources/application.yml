@@ -1,0 +1,49 @@
+#LOGGING
+logging:
+    config: classpath:logback.xml
+server:
+    port: 8080
+    compression:
+        enabled: true
+        mime-types: application/json,application/xml,text/html,text/xml,text/plain
+multipart:
+    enabled: true
+    maxFileSize: 80Mb
+    maxRequestSize: 100Mb
+    location: ./upload
+#spring config
+spring:
+    aop:
+        auto: true
+    datasource:
+        schema: classpath:db.sql
+        name: core
+        url: jdbc:h2:file:./data/h2db;DB_CLOSE_ON_EXIT=FALSE
+        driverClassName: org.h2.Driver
+        username: sa
+        password:
+        type: com.alibaba.druid.pool.DruidDataSource
+        filters: stat
+        maxActive: 1000
+        initialSize: 5
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x' from dual
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+#    freemarker :
+#        suffix : .ftl
+#        templateLoaderPath: classpath*:templates/
+#        preferFileSystemAccess: false
+    mvc:
+        favicon:
+            enabled: false
+# MyBatis
+mybatis:
+    mapper-locations: classpath*:org/hsweb/demo/dao/mybatis/**/*.xml
+    config: classpath:mybatis-config.xml
