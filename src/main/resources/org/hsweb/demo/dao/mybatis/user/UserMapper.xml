@@ -10,7 +10,7 @@
     </resultMap>
 
     <insert id="insert" parameterType="org.hsweb.demo.po.User">
-        insert into t_user (u_id,username,password) values(#{u_id},#{username},#{password})
+        insert into t_user (id,username,password) values(#{id},#{username},#{password})
     </insert>
 
     <delete id="deleteById" parameterType="org.hsweb.demo.po.User">
